@@ -15,34 +15,37 @@ export const Game = () => {
   
   const [board,setBoard] = useState(Array(9).fill(null))
 
-  const [turn, setTurn] = useState('');
-
-
+  const [turn, setTurn] = useState(TURNS.X);
+  
+  
   const params = useParams();
   
-  let choosedPlayer = players.filter((player) => {
+  const choosedPlayer = players.filter((player) => {
     return player.playerId === params.id
   });
 
-  useEffect(()=>{
-    setTurn(choosedPlayer[0].action)
-  },[choosedPlayer]);
+  // useEffect(()=>{
+  //   setTurn(choosedPlayer[0].action)
+  // },[choosedPlayer]);
   
+  const updateBoard = (index) =>{
+   
+    if(board[index]) return 
 
-  // const navigate = useNavigate();
+    const newBoard = [...board];
+    newBoard[index] = turn;
+    setBoard(newBoard);
 
-  // const elements = Array(9).fill(null);
-
-  // const handleC = () => {
-  //   navigate('/');
-  // }
-
-  const updateBoard = () =>{
-
+    let newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
+    setTurn(newTurn);
+    console.log(turn === TURNS.O);
   }
 
- 
-  // console.log(playerId)
+  const restart = () => {
+    setBoard(Array(9).fill(null))
+    setTurn(TURNS.X)
+  }
+
   return (
     <>      
       {/* <button onClick={handleC}>Inicio</button> */}
@@ -54,25 +57,22 @@ export const Game = () => {
                     index={index}
                     updateBoard={updateBoard}
             >
-              {
-                // choosedPlayer.map((player)=>{
-                //   return player.action;
-                // })
-              element
-              }
+              {element}
             </Square>
           )
         })
       }
     </div>
     <section className='turns'>
-      <Turns isSelected={choosedPlayer[0].action === TURNS.X}>
+      <Turns isSelected={turn === TURNS.X}>
         {TURNS.X}
       </Turns>
-      <Turns isSelected={choosedPlayer[0].action === TURNS.O}>
+      <Turns isSelected={turn === TURNS.O}>
         {TURNS.O}
       </Turns>
     </section>
     </>
   )
+
 }
+

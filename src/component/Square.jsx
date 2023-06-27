@@ -1,17 +1,29 @@
 // import React from 'react'
 
+import { useState } from "react";
+
 export const Square = ({ children,isSelected,updateBoard,index }) => {
   
-  let className = `square  ${isSelected ? 'is-selected' : ''}`
+  const [disable,setDisable] = useState(false);
+
+  let className = `square  ${isSelected ? 'is-selected' : ''}`;
+  // let disable = `square  ${isSelected ? 'is-selected' : ''}`;
+
   
+  const isDisable = () => {
+    setDisable(!disable);
+  }
+
   const handleClick = () =>{
-    updateBoard();
+    updateBoard(index);
+    isDisable();
+
   }
 
   return (
     <div onClick={handleClick} className={className}>
       
-        {children}
+        <h2 className={disable ? "square-element disable" : "square-element"}>{children}</h2>
     
     </div>
   )
