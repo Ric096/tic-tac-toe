@@ -1,5 +1,5 @@
 import  { useEffect, useState } from 'react'
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { Square } from "./Square";
 import { players } from "./players";
 import { Turns } from './Turns';
