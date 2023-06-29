@@ -50,12 +50,16 @@ button {
 }
 
 .modal{
-  width: 65%;
+  width: 400px;
   height: auto;
   padding: 30px;
   background-color: #ebd9d9;
   margin: 40px auto;
   border-radius: 8px;
+}
+
+.modal button{
+  margin-left: 5px;
 }
 
 .game-container {
@@ -107,6 +111,22 @@ button {
   border-radius: 5px;
   scale: 1.3;
   background-color: green;
+}
+
+.winner {
+  position: absolute;
+  width: 410px;
+  height: 50vh;
+  top: 162px;
+  display: grid;
+  place-items: center;
+  place-content: space-evenly;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 5px;
+}
+
+.winner h2{
+  color: white;
 }
 
 button:hover {

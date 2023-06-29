@@ -1,5 +1,4 @@
 export const players = [
-
     { 
         playerId: '1',
         action: "❌",
@@ -12,5 +11,3 @@ export const players = [
         turn: null
     }
 ]
-
-console.log(players[0].playerId)
