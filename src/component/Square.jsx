@@ -7,8 +7,6 @@ export const Square = ({ children,isSelected,updateBoard,index }) => {
   const [disable,setDisable] = useState(false);
 
   let className = `square  ${isSelected ? 'is-selected' : ''}`;
-  // let disable = `square  ${isSelected ? 'is-selected' : ''}`;
-
   
   const isDisable = () => {
     setDisable(!disable);
