@@ -87,7 +87,6 @@ export const Game = () => {
 
   return (
     <>      
-      {/* <button onClick={handleC}>Inicio</button> */}
       <div className="game-container">  
       {
         board.map((element,index) => {
@@ -114,8 +113,6 @@ export const Game = () => {
       winner !== null && (
         <section className='winner'>
           {
-          //  winner == false ? <h2>EMPATE..</h2> : 
-          // <h2>Jugador {winner} has ganado</h2>
           <h2>
             {winner === false ? 'EMPATE..' :`Jugador ${winner} has ganado`}
           </h2>
@@ -125,14 +122,6 @@ export const Game = () => {
 
       ) 
     }
-
-    {/* {
-      (winner == null) && 
-      <section className='winner'>
-          <h2>NO HAY GANADOR 😐😐</h2>
-          <button onClick={restart}>VOLVER A JUGAR!</button>
-        </section>
-    } */}
     </>
   )
 
